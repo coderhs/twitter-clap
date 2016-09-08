@@ -6,7 +6,17 @@ class SendTweetController < ApplicationController
 
   def create
     Message.create!(:message => twitter_params[:message], :user_id => current_user.id)
-    TweetJob.perform_async(current_user.tweet(twitter_params[:message]))
+
+    
+    users = User.where(:retweet => true)
+    if users
+      users.each do |user| 
+        TweetJob.perform_async(current_user.tweet(twitter_params[:message]))
+      end
+      redirect_to root_url, notice: "Request for retweeting is accepted"
+    else
+      redirect_to root_url, notice: "Not found any users for retweet"
+    end 
   end
 
   def retweet
