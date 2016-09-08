@@ -58,4 +58,5 @@ gem 'devise_invitable'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'letter_opener'
 
