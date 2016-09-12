@@ -1,0 +1,15 @@
+<div class="col-lg-4 col-lg-offset-4">
+
+	<%= form_for :user_type, :url => {:controller => 'users', :action => 'create_user_type'}, html: {id: 'tweet-form', class: 'form-horizontal'}, method: :post do |f| %>
+
+			<div class="form-group">
+        <%= f.label :user_type %>        
+        <%= f.text_field :user_type, class: 'form-control', placeholder: 'Enter role', value: @user.user_type%>     
+      </div>
+
+      <%= f.hidden_field :id, value: @user.id%>
+
+	    <%= f.submit "Send Tweet", class: 'btn btn-primary' %>
+	    
+	  <% end %>
+</div>

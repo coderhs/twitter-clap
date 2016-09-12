@@ -1,0 +1,33 @@
+
+	<div class="">
+			<table class="table table-striped">
+				<thead>
+					<th>SL NO.</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Username</th>
+					<th>User Type</th>
+				</thead>
+				<tbody>
+	        <% i=0 %>
+					<%@users.each do |user| %>
+						<tr>
+							<td><%= i=i+1 %></td>
+							<td><%= user.try(:name)%></td>
+							<td><%= user.try(:email)%></td>
+							<td><%= user.try(:username)%></td>
+							<td><%= user.try(:user_type)%></td>
+
+							<td><%= link_to 'show', "users/show/#{user.id}" %></td>		
+
+							<td><%= link_to 'change Role', "users/role/#{user.id}" %></td>			
+														
+							<td>
+								<%= link_to 'delete', "users/destroy/#{user.id}", data: { confirm: 'Are you sure?' } %>
+							</td>				
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		
+	</div>

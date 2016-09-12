@@ -60,3 +60,4 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'letter_opener'
 
+gem 'cancancan'
