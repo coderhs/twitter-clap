@@ -5,7 +5,7 @@
 
 			<div class="form-group">
         <%= f.label :message %>        
-        <%= f.text_field :message, class: 'form-control', placeholder: 'message'%>     
+        <%= f.text_area :message, :size => '60*60', class: 'form-control', placeholder: 'message'%>     
       </div>
 
 	    <%= f.submit "Send Tweet", class: 'btn btn-primary' %>

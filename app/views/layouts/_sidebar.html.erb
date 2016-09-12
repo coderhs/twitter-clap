@@ -1,14 +1,15 @@
 <% if user_signed_in? %>
 
 	</br>
-	<%unless current_user.uid %>
-		<h4><%= link_to "Sign Up with twitter", destroy_user_session_path, method: :delete%></h4>
-		</br></br>
-	<%end%>
-
-	<h4><%= link_to "Edit Profile", edit_user_registration_path%></h4>
-
-	</br></br>
+	<% if current_user.user_type %>
+		<h4><a href="users/index">List Users</a></h4>
+		</br>
+	<% end %>
+	
 	<h4><%= link_to 'Invite other people', new_user_invitation_path %></h4>
+
+	</br>
+	<h4><%= link_to "Edit Profile", edit_user_registration_path%></h4>
+	
 
 <% end %>
