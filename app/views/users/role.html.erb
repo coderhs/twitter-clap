@@ -2,14 +2,20 @@
 
 	<%= form_for :user_type, :url => {:controller => 'users', :action => 'create_user_type'}, html: {id: 'tweet-form', class: 'form-horizontal'}, method: :post do |f| %>
 
-			<div class="form-group">
-        <%= f.label :user_type %>        
-        <%= f.text_field :user_type, class: 'form-control', placeholder: 'Enter role', value: @user.user_type%>     
+      <div class="form-group">
+      	<label for="user_type">User Type</label>
+        <select name="user_type[user_type]"  value="<%= @user.user_type %>">
+        	<option value="user" <%= 'selected'if(@user.user_type == 'user')%>>User</option>
+        	<option value="admin" <%= 'selected'if(@user.user_type == 'admin') %>>Admin</option>
+        	
+        </select>    
       </div>
+
+      
 
       <%= f.hidden_field :id, value: @user.id%>
 
-	    <%= f.submit "Send Tweet", class: 'btn btn-primary' %>
+	    <%= f.submit "Submit", class: 'btn btn-primary' %>
 	    
 	  <% end %>
 </div>

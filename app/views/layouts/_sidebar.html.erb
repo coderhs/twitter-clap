@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 
 	</br>
-	<% if current_user.user_type %>
+	<% if current_user.user_type == 'admin'%>
 		<h4><a href="users/index">List Users</a></h4>
 		</br>
 	<% end %>
