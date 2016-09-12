@@ -9,4 +9,12 @@ module SendTweetHelper
     end
 	end
 
+	def user_type_select
+		if @user.user_type
+			return "selected"
+		else
+			""
+		end
+	end
+
 end
